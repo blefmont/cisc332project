@@ -1,0 +1,24 @@
+If room is in the database will have students in the room - total participation of rooms
+Comitee member must be on a comitee 
+
+
+One sponsor can only be sponsored by one company 
+
+Company cannot have two ads with the same job title 
+
+No session will span both days
+
+All sessions have unique names 
+
+Session must have at least one speaker
+
+Assume attendings have unique names 
+
+Assume committee members have unique names 
+
+
+- No first name longer than 32 characters
+
+- Committee name will not be longer than 64 characters
+
+
