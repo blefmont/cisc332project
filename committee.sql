@@ -48,7 +48,7 @@ insert into committee values ('Programming Committee', 'Michael', 'Olson');
 insert into committee values ('Promotion Committee', 'Matthew', 'Kruzich');
 insert into committee values ('Finance Committee', 'Ted', 'Mosby');
 insert into committee values ('Safety Committee', 'Monica', 'Geller');
-insert into committee values ('Photography Committee', 'Spongebob', 'Squarepants');
+insert into committee values ('Sponsorship Committee', 'Spongebob', 'Squarepants');
 
 
 /* is on */
@@ -84,11 +84,11 @@ insert into is_on values ('Chandler','Bing','Safety Committee');
 insert into is_on values ('Ross', 'Geller','Safety Committee');
 
 
-insert into is_on values ('Spongebob', 'Squarepants', 'Photography Committee');
-insert into is_on values ('Patrick', 'Star','Photography Committee');
-insert into is_on values ('Squidward', 'Tentacles', 'Photography Committee');
-insert into is_on values ('Sandy', 'Cheeks', 'Photography Committee');
-insert into is_on values ('Pearl', 'Krabs', 'Photography Committee');
+insert into is_on values ('Spongebob', 'Squarepants', 'Sponsorship Committee');
+insert into is_on values ('Patrick', 'Star','Sponsorship Committee');
+insert into is_on values ('Squidward', 'Tentacles', 'Sponsorship Committee');
+insert into is_on values ('Sandy', 'Cheeks', 'Sponsorship Committee');
+insert into is_on values ('Pearl', 'Krabs', 'Sponsorship Committee');
 
 
 
