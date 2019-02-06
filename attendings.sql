@@ -5,23 +5,23 @@ create table attendings
      );
      
 create table student(
-    fname varchar(32),
-    lname varchar(32),
+    fname varchar(32) not null,
+    lname varchar(32) not null,
     primary key (fname, lname),
     foreign key (fname, lname) references attendings(fname, lname) on delete cascade
 );
 
 create table professional(
-    fname varchar(32),
-    lname varchar(32),
+    fname varchar(32) not null,
+    lname varchar(32) not null,
     primary key (fname, lname),
     foreign key (fname, lname) references attendings(fname, lname) on delete cascade
 );
 
 
 create table sponsor(
-    fname varchar(32),
-    lname varchar(32),
+    fname varchar(32) not null,
+    lname varchar(32) not null,
     primary key (fname, lname),
     foreign key (fname, lname) references attendings(fname, lname) on delete cascade
 );
