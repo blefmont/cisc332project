@@ -1,24 +1,37 @@
-If room is in the database will have students in the room - total participation of rooms
-Comitee member must be on a comitee 
+Assume attendings have unique names
+    - first name cannot be longer than 32 characters
+    - last name cannot be longer than 32 characters
+
+Assume committee members have unique names
+    - first name cannot be longer than 32 characters
+    - last name cannot be longer than 32 characters
+
+Assume session names are unique
+    - name cannot be longer than 64 characters 
+
+Assume Subcomittee will have a unique name
+    - name cannot be longer than 64 characters 
+
+Assume subcomittee must have a chair
+
+Assume a subcomittee member can be the chair of multiple subcomittees
+
+Assume committee member must be on at least one committee
 
 
-One sponsor can only be sponsored by one company 
+Wording a bit ambigious regarding rooms, assume that each room has a distinct number (rather than rooms with a different amount of beds can have the same number)
 
-Company cannot have two ads with the same job title 
-
-No session will span both days
-
-All sessions have unique names 
-
-Session must have at least one speaker
-
-Assume attendings have unique names 
-
-Assume committee members have unique names 
+Assume if the room is in the database, the room has students in it. 
 
 
-- No first name longer than 32 characters
+- Assume mailing list of attendings only includes email, does not include physical address
+- Assume attendings only have one email 
 
-- Committee name will not be longer than 64 characters
+- Different companies may have the same job title, but each company cannot have more than one add with the same title 
 
 
+- Cannot have two sessions with the same name, start time and the same room. 
+
+- Session must have at least one speaker 
+
+- Attendings must be a student, professional or sponsor 
