@@ -1,33 +1,33 @@
-Assume attendings have unique names
+-Assume attendings have unique names
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
 - Assume 'mailing list' sponsors have access to is an email list 
 - assume no email longer than 128 characters
 
-Assume committee members have unique names
+-Assume committee members have unique names
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
 
-Assume session names are unique
+-Assume session names are unique
     - name cannot be longer than 32 characters 
 
-Assume Subcomittee will have a unique name
+-Assume Subcomittee will have a unique name
     - name cannot be longer than 32 characters 
 
-Assume subcomittee must have a chair
+-Assume subcomittee must have a chair
 
-Assume a subcomittee member can be the chair of multiple subcomittees
+-Assume a subcomittee member can be the chair of multiple subcomittees
 
-Assume committee member must be on at least one committee
+-Assume committee member must be on at least one committee
 
 
-Wording a bit ambigious regarding rooms, assume that each room has a distinct number (rather than rooms with a different amount of beds can have the same number)
-
-Assume if the room is in the database, the room has students in it. 
+-Wording a bit ambigious regarding rooms, assume that each room has a distinct number (rather than rooms with a different amount of beds can have the same number)
 
 
 - Assume mailing list of attendings only includes email, does not include physical address
 - Assume attendings only have one email 
+
+-Assume that sessions will not span 2 days. 
 
 - Different companies may have the same job title, but each company cannot have more than one add with the same title 
 
