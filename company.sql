@@ -35,6 +35,7 @@ insert into status values('Silver', 3000, 3);
 insert into status values('Bronze', 1000, 0); 
 
 --job ads
-insert into status values('Butcher', Kamloops, BC, 50000, 'Google'); 
-insert into status values('Baker', Barrie, ON, 60000, 'Facebook'); 
-insert into status values('Candlestick Maker', Saguenay, QC, 70000, 'Microsoft'); 
+insert into status values('Butcher', 'Kamloops', 'BC', 50000, 'Google'); 
+insert into status values('Baker', 'Barrie', 'ON', 60000, 'Facebook'); 
+insert into status values('Candlestick Maker', 'Saguenay', 'QC', 70000, 'Microsoft'); 
+insert into status values('Junior Dev', 'Cavendish', 'PEI', 80000, 'Apple'); 
