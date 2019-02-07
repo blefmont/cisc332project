@@ -9,7 +9,7 @@
     - last name cannot be longer than 32 characters
 
 -Assume session names are unique
-    - name cannot be longer than 32 characters 
+    - name cannot be longer than 64 characters 
 
 -Assume Subcomittee will have a unique name
     - name cannot be longer than 32 characters 
@@ -27,15 +27,16 @@
 - Assume mailing list of attendings only includes email, does not include physical address
 - Assume attendings only have one email 
 
--Assume that sessions will not span 2 days. 
+- Assume that sessions will not span 2 days. 
 
-- Different companies may have the same job title, but each company cannot have more than one add with the same title 
-
-
-- Cannot have two sessions with the same name, start time and the same room. 
+- Different companies may have the same job title, but each company cannot have more than one ad with the same title 
 
 - Session must have at least one speaker 
+
+- Only one session can happen per room at a single start time.
 
 - Attendings must be a student, professional or sponsor 
 
 - If company is deleted from the database should delete all of their posted job titles
+
+- If company is deleted from the database all ascociated sponsors are deleted.\
