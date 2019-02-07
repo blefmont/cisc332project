@@ -2,10 +2,10 @@ create table company
   (name varchar(32) not null primary key,
    emails_sent int not null,
    sponsor_level varchar(32) not null,
-   foreign key(sponsor_level) references status(metal) 
+   foreign key(sponsor_level) references sponsor_status(metal) 
    )
    
-create table status
+create table sponsor_status
   (metal varchar(32) not null primary key,
    amount int,
    email_cap int
