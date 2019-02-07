@@ -35,3 +35,5 @@ Assume if the room is in the database, the room has students in it.
 - Session must have at least one speaker 
 
 - Attendings must be a student, professional or sponsor 
+
+- If company is deleted from the database should delete all of their posted job titles
