@@ -60,46 +60,50 @@ create table Sponsor(
 /* Sample data */
 
 /*Attendings*/
-insert into Attendings values ('Liam','Smith','lsmith@whoohoo.com');
-insert into Attendings values ('Noah','Johnson','njohnson@whoohoo.com');
-insert into Attendings values ('William','Jones', 'wjones@whoohoo.com');
-insert into Attendings values ('James','Brown', 'jbrown@whoohoo.com');
-insert into Attendings values ('Logan','Davis','fluffycorn17@wahaha.com');
-insert into Attendings values ('David','Miller','dmiller@whohoo.com');
-insert into Attendings values ('Robert','Moore','rmoore@whohoo.com');
-insert into Attendings values ('Michael','Taylor','mtaylor@whohoo.com');
-insert into Attendings values ('Richard','Anderson','randerson@wahaha.com');
-insert into Attendings values ('Emma','Jackson', 'em12@whohoo.com');
-insert into Attendings values ('Mary','Thompson', 'mthompson@whohoo.com');
-insert into Attendings values ('Olivia','Garcia', 'ogarcia@whohoo.com');
-insert into Attendings values ('Jennifer','Clark','jclark@whohoo.com');
-insert into Attendings values ('Victoria','Robinson', 'vrobinson@whohoo.com');
-insert into Attendings values ('Zoe','Lewis', 'zlewis@wahaha.com');
-insert into Attendings values ('Mia','Allen','mallen@wahaha.com');
-insert into Attendings values ('Alice','Lee', 'alee@whohoo.com');
-insert into Attendings values ('Ava', 'Young', 'ayoung@whohoo.com');
-insert into Attendings values ('Charlotte', 'King', 'cking@whohoo.com');
-insert into Attendings values ('Julia', 'Wright', 'jwright@wahaha.com');
-insert into Attendings values ('Adam', 'Lopez', 'fluffycorn18@wahaha.ca');
-insert into Attendings values ('Jacob', 'Hill','jhill@whohoo.com');
-insert into Attendings values ('Oliver', 'Martin', 'omartin@whohoo.com');
-insert into Attendings values ('Juan', 'Scott', 'jscott@whohoo.com');
-insert into Attendings values ('Thomas', 'Nelson', 'thomas_nelson@wahaha.com');
-insert into Attendings values ('John', 'Gonzalez', 'jgonzalez@wahaha.com');
-insert into Attendings values ('Charles', 'Green', 'greenc@qwl.com');
-insert into Attendings values ('Mae', 'Perez','mperez@whohoo.com');
-insert into Attendings values ('Lissa', 'Roberts', 'lroberts@fe.com');
-insert into Attendings values ('Celica', 'Turner', 'lroberts@sov.com');
-insert into Attendings values ('Priscilla','Phillips', 'lroberts@fe.com');
-insert into Attendings values ('Evelyn','Campbell', 'lroberts@fe.com');
-insert into Attendings values ('Roy','Parker', 'roy1234@fe.com');
-insert into Attendings values ('Chrom','Evans', 'chrom@fea.com');
-insert into Attendings values ('Lucina','Evans', 'lucina@fea.com');
-insert into Attendings values ('Gray', 'Stewart', 'gstewart@sov.com');
-insert into Attendings values ('Alm', 'Sanchez', 'alm@sov.com');
-insert into Attendings values ('Robin','Morris', 'rmorris@fea.com');
-insert into Attendings values ('Fredrick','Rogers', 'frogers@fea.com');
-insert into Attendings values ('Virion','Bell', 'virion@fea.com');
+insert into Attendings values ('Liam','Smith');
+insert into Attendings values ('Noah','Johnson');
+insert into Attendings values ('William','Jones');
+insert into Attendings values ('James','Brown');
+insert into Attendings values ('Logan','Davis');
+insert into Attendings values ('David','Miller');
+insert into Attendings values ('Robert','Moore');
+insert into Attendings values ('Michael','Taylor');
+insert into Attendings values ('Richard','Anderson');
+insert into Attendings values ('Emma','Jackson');
+insert into Attendings values ('Mary','Thompson');
+insert into Attendings values ('Olivia','Garcia');
+insert into Attendings values ('Jennifer','Clark');
+insert into Attendings values ('Victoria','Robinson');
+insert into Attendings values ('Zoe','Lewis');
+insert into Attendings values ('Mia','Allen');
+insert into Attendings values ('Alice','Lee');
+
+
+insert into Attendings values ('Ava', 'Young');
+insert into Attendings values ('Charlotte', 'King');
+insert into Attendings values ('Julia', 'Wright');
+insert into Attendings values ('Adam', 'Lopez');
+insert into Attendings values ('Jacob', 'Hill');
+insert into Attendings values ('Oliver', 'Martin');
+insert into Attendings values ('Juan', 'Scott');
+insert into Attendings values ('Thomas', 'Nelson');
+insert into Attendings values ('John', 'Gonzalez');
+insert into Attendings values ('Charles', 'Green');
+
+insert into Attendings values ('Mae', 'Perez');
+insert into Attendings values ('Lissa', 'Roberts');
+insert into Attendings values ('Celica', 'Turner');
+insert into Attendings values ('Priscilla','Phillips');
+insert into Attendings values ('Evelyn','Campbell');
+insert into Attendings values ('Roy','Parker');
+insert into Attendings values ('Chrom','Evans');
+insert into Attendings values ('Lucina','Evans');
+insert into Attendings values ('Gray', 'Stewart');
+insert into Attendings values ('Alm', 'Sanchez');
+insert into Attendings values ('Robin','Morris');
+insert into Attendings values ('Fredrick','Rogers');
+insert into Attendings values ('Virion','Bell');
+
 
 
 

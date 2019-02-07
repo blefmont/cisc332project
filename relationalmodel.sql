@@ -1,33 +1,65 @@
 create table Attendings
-    (fname varchar(32),
-     lname varchar(32),
+    (fname varchar(32) not null,
+     lname varchar(32) not null,
      primary key (fname, lname)
      );
      
 create table Student(
     fname varchar(32) not null,
     lname varchar(32) not null,
+    email varchar(128),
 	roomnumber varchar(8),
     primary key (fname, lname),
     foreign key (fname, lname) references Attendings(fname, lname) on delete cascade,
 	foreign key (roomnumber) references rooms(roomnumber) on delete set null
+	
 );
 
 create table Professional(
     fname varchar(32) not null,
     lname varchar(32) not null,
+    email varchar(128),
     primary key (fname, lname),
     foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
 );
 
 
+
+
+create table Sponsor_status
+  (metal varchar(32) not null primary key,
+   amount int,
+   email_cap int
+   );
+   
+   
+create table Company
+  (name varchar(32) not null primary key,
+   emails_sent int not null,
+   sponsor_level  varchar(32) not null,
+   foreign key (sponsor_level) references Sponsor_status (metal) 
+   );
+   
 create table Sponsor(
     fname varchar(32) not null,
     lname varchar(32) not null,
+    representing varchar(32) not null,
+    email varchar(128),
     primary key (fname, lname),
-    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
+    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade,
+    foreign key (representing) references Company(name) on delete cascade
 );
-
+   
+ create table Ad
+  (job_title varchar(32) not null,
+   city varchar(32),
+   province varchar(32),
+   salary int,
+   company varchar(32) not null,
+   primary key (job_title, company),
+   foreign key (company) references Company (name) on delete cascade
+   );
+   
 create table committee_member
 	(fname varchar(32) not null, 
      lname varchar(32) not null,
@@ -73,63 +105,12 @@ create table is_speaking
 	foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
 	);
 	
-create table Attendings
-    (fname varchar(32),
-     lname varchar(32),
-     email varchar(128),
-     primary key (fname, lname)
-     );
-     
-create table Student(
-    fname varchar(32) not null,
-    lname varchar(32) not null,
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
-);
+create table rooms(
+	roomnumber varchar(8) not null primary key,
+	numberofbeds int not null
+	);
 
-create table Professional(
-    fname varchar(32) not null,
-    lname varchar(32) not null,
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
-);
-
-
-
-
-create table Sponsor_status
-  (metal varchar(32) not null primary key,
-   amount int,
-   email_cap int
-   );
-   
-   
-create table Company
-  (name varchar(32) not null primary key,
-   emails_sent int not null,
-   sponsor_level  varchar(32) not null,
-   foreign key (sponsor_level) references Sponsor_status (metal) 
-   );
-   
-create table Sponsor(
-    fname varchar(32) not null,
-    lname varchar(32) not null,
-    representing varchar(32) not null,
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade,
-    foreign key (representing) references Company(name) on delete cascade
-);
-   
- create table Ad
-  (job_title varchar(32) not null,
-   city varchar(32),
-   province varchar(32),
-   salary int,
-   company varchar(32) not null,
-   primary key (job_title, company),
-   foreign key (company) references Company (name) on delete cascade
-   );
-   
+/*Attendings*/
 insert into Attendings values ('Liam','Smith');
 insert into Attendings values ('Noah','Johnson');
 insert into Attendings values ('William','Jones');
@@ -174,55 +155,50 @@ insert into Attendings values ('Robin','Morris');
 insert into Attendings values ('Fredrick','Rogers');
 insert into Attendings values ('Virion','Bell');
 
+/*Professional*/
+insert into Professional values ('Mae', 'Perez','mperez@whohoo.com');
+insert into Professional values ('Lissa', 'Roberts', 'lroberts@fe.com');
+insert into Professional values ('Celica', 'Turner', 'lroberts@sov.com');
+insert into Professional values ('Priscilla','Phillips', 'lroberts@fe.com');
+insert into Professional values ('Evelyn','Campbell', 'lroberts@fe.com');
+insert into Professional values ('Roy','Parker', 'roy1234@fe.com');
+insert into Professional values ('Chrom','Evans', 'chrom@fea.com');
+insert into Professional values ('Lucina','Evans', 'lucina@fea.com');
+insert into Professional values ('Gray', 'Stewart', 'gstewart@sov.com');
+insert into Professional values ('Alm', 'Sanchez', 'alm@sov.com');
+insert into Professional values ('Robin','Morris', 'rmorris@fea.com');
+insert into Professional values ('Fredrick','Rogers', 'frogers@fea.com');
+insert into Professional values ('Virion','Bell', 'virion@fea.com');
 
+insert into Student values ('Liam','Smith','lsmith@whoohoo.com', '001');
+insert into Student values ('Noah','Johnson','njohnson@whoohoo.com', '001');
+insert into Student values ('William','Jones', 'wjones@whoohoo.com', '011');
+insert into Student values ('James','Brown', 'jbrown@whoohoo.com', '011');
+insert into Student values ('Logan','Davis','fluffycorn17@wahaha.com', '011');
+insert into Student values ('David','Miller','dmiller@whohoo.com', '123');
+insert into Student values ('Robert','Moore','rmoore@whohoo.com', '123');
+insert into Student values ('Michael','Taylor','mtaylor@whohoo.com', '123');
+insert into Student values ('Richard','Anderson','randerson@wahaha.com', '123');
+insert into Student values ('Emma','Jackson', 'em12@whohoo.com', '124');
+insert into Student values ('Mary','Thompson', 'mthompson@whohoo.com', '203');
+insert into Student values ('Olivia','Garcia', 'ogarcia@whohoo.com', '203');
+insert into Student values ('Jennifer','Clark','jclark@whohoo.com', null);
+insert into Student values ('Victoria','Robinson', 'vrobinson@whohoo.com', null);
+insert into Student values ('Zoe','Lewis', 'zlewis@wahaha.com', null);
+insert into Student values ('Mia','Allen','mallen@wahaha.com', null);
+insert into Student values ('Alice','Lee', 'alee@whohoo.com', null);
 
-
-
-insert into Student values ('Liam','Smith', '001');
-insert into Student values ('Noah','Johnson', '001');
-insert into Student values ('William','Jones', '011');
-insert into Student values ('James','Brown', '011');
-insert into Student values ('Logan','Davis', '011');
-insert into Student values ('David','Miller', '123');
-insert into Student values ('Robert','Moore', '123');
-insert into Student values ('Michael','Taylor', '123');
-insert into Student values ('Richard','Anderson', '123');
-insert into Student values ('Emma','Jackson', '124');
-insert into Student values ('Mary','Thompson', '203');
-insert into Student values ('Olivia','Garcia', '203');
-insert into Student values ('Jennifer','Clark', null);
-insert into Student values ('Victoria','Robinson', null);
-insert into Student values ('Zoe','Lewis', null);
-insert into Student values ('Mia','Allen', null);
-insert into Student values ('Alice','Lee', null);
-
-
-insert into Sponsor values ('Ava', 'Young');
-insert into Sponsor values ('Charlotte', 'King');
-insert into Sponsor values ('Julia', 'Wright');
-insert into Sponsor values ('Adam', 'Lopez');
-insert into Sponsor values ('Jacob', 'Hill');
-insert into Sponsor values ('Oliver', 'Martin');
-insert into Sponsor values ('Juan', 'Scott');
-insert into Sponsor values ('Thomas', 'Nelson');
-insert into Sponsor values ('John', 'Gonzalez');
-insert into Sponsor values ('Charles', 'Green');
-
-
-insert into Professional values ('Mae', 'Perez');
-insert into Professional values ('Lissa', 'Roberts');
-insert into Professional values ('Celica', 'Turner');
-insert into Professional values ('Priscilla','Phillips');
-insert into Professional values ('Evelyn','Campbell');
-insert into Professional values ('Roy','Parker');
-insert into Professional values ('Chrom','Evans');
-insert into Professional values ('Lucina','Evans');
-insert into Professional values ('Gray', 'Stewart');
-insert into Professional values ('Alm', 'Sanchez');
-insert into Professional values ('Robin','Morris');
-insert into Professional values ('Fredrick','Rogers');
-insert into Professional values ('Virion','Bell');
-
+/*Sponsors*/
+insert into Sponsor values ('Ava', 'Young', 'Google', 'ayoung@whohoo.com');
+insert into Sponsor values ('Charlotte', 'King', 'Google', 'cking@whohoo.com');
+insert into Sponsor values ('Julia', 'Wright', 'Google','jwright@wahaha.com');
+insert into Sponsor values ('Adam', 'Lopez', 'Apple','fluffycorn18@wahaha.ca');
+insert into Sponsor values ('Jacob', 'Hill', 'Facebook','jhill@whohoo.com');
+insert into Sponsor values ('Oliver', 'Martin', 'Apple','omartin@whohoo.com');
+insert into Sponsor values ('Juan', 'Scott', 'Microsoft','jscott@whohoo.com');
+insert into Sponsor values ('Thomas', 'Nelson', 'Microsoft','thomas_nelson@wahaha.com');
+insert into Sponsor values ('John', 'Gonzalez', 'Microsoft','jgonzalez@wahaha.com');
+insert into Sponsor values ('Charles', 'Green', 'Microsoft','greenc@qwl.com');
 
 
 /* commitee members */     
