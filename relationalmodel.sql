@@ -1,3 +1,7 @@
+create table rooms(
+	roomnumber varchar(8) not null primary key,
+	numberofbeds int not null
+	);
 create table Attendings
     (fname varchar(32) not null,
      lname varchar(32) not null,
@@ -105,10 +109,124 @@ create table is_speaking
 	foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
 	);
 	
-create table rooms(
-	roomnumber varchar(8) not null primary key,
-	numberofbeds int not null
-	);
+insert into rooms values('001', 2);
+insert into rooms values('011', 3);
+insert into rooms values('123', 4);
+insert into rooms values('124', 4);
+insert into rooms values('203', 2);
+insert into rooms values('433', 3);
+
+
+
+
+/* commitee members */     
+insert into committee_member values ('Joshua', 'Charkow');
+insert into committee_member values ('Michael', 'Olson');
+insert into committee_member values ('Matthew', 'Kruzich');
+insert into committee_member values ('Spongebob', 'Squarepants');
+insert into committee_member values ('Patrick', 'Star');
+insert into committee_member values ('Squidward', 'Tentacles');
+insert into committee_member values ('Sandy', 'Cheeks');
+insert into committee_member values ('Pearl', 'Krabs');
+insert into committee_member values ('Ted', 'Mosby');
+insert into committee_member values ('Robin','Scherbatsky');
+insert into committee_member values ('Barney', 'Stinson');
+insert into committee_member values ('Marshall','Eriksen');
+insert into committee_member values ('Rachel', 'Green');
+insert into committee_member values ('Monica', 'Geller');
+insert into committee_member values ('Phoebe','Buffay');
+insert into committee_member values ('Joey','Tribbiani');
+insert into committee_member values ('Chandler','Bing');
+insert into committee_member values ('Ross', 'Geller');
+
+/* Committees */
+insert into committee values ('Food Committee', 'Joshua', 'Charkow');
+insert into committee values ('Programming Committee', 'Michael', 'Olson');
+insert into committee values ('Promotion Committee', 'Matthew', 'Kruzich');
+insert into committee values ('Finance Committee', 'Ted', 'Mosby');
+insert into committee values ('Safety Committee', 'Monica', 'Geller');
+insert into committee values ('Sponsorship Committee', 'Spongebob', 'Squarepants');
+
+
+/* is on */
+insert into is_on values ('Joshua', 'Charkow', 'Food Committee');
+insert into is_on values ('Robin','Scherbatsky','Food Committee');
+insert into is_on values ('Matthew', 'Kruzich', 'Food Committee');
+insert into is_on values ('Squidward', 'Tentacles', 'Food Committee');
+insert into is_on values ('Pearl', 'Krabs', 'Food Committee');
+
+
+insert into is_on values ('Michael', 'Olson', 'Programming Committee');
+insert into is_on values ('Matthew', 'Kruzich', 'Programming Committee');
+insert into is_on values ('Joshua', 'Charkow', 'Programming Committee');
+insert into is_on values ('Phoebe','Buffay','Programming Committee');
+
+insert into is_on values ('Matthew', 'Kruzich', 'Promotion Committee');
+insert into is_on values ('Ross', 'Geller','Promotion Committee');
+insert into is_on values ('Squidward', 'Tentacles', 'Promotion Committee');
+insert into is_on values ('Marshall','Eriksen','Promotion Committee');
+
+
+
+insert into is_on values ('Ted', 'Mosby', 'Finance Committee');
+insert into is_on values ('Robin','Scherbatsky','Finance Committee');
+insert into is_on values ('Barney', 'Stinson','Finance Committee');
+insert into is_on values ('Marshall','Eriksen','Finance Committee');
+
+
+insert into is_on values ('Monica', 'Geller', 'Safety Committee');
+insert into is_on values ('Phoebe','Buffay','Safety Committee');
+insert into is_on values ('Joey','Tribbiani','Safety Committee');
+insert into is_on values ('Chandler','Bing','Safety Committee');
+insert into is_on values ('Ross', 'Geller','Safety Committee');
+
+
+insert into is_on values ('Spongebob', 'Squarepants', 'Sponsorship Committee');
+insert into is_on values ('Patrick', 'Star','Sponsorship Committee');
+insert into is_on values ('Squidward', 'Tentacles', 'Sponsorship Committee');
+insert into is_on values ('Sandy', 'Cheeks', 'Sponsorship Committee');
+insert into is_on values ('Pearl', 'Krabs', 'Sponsorship Committee');
+
+insert into session values (TIME('12:00:00'), TIME('13:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme');
+insert into session values (TIME('14:00:00'), TIME('15:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss');
+insert into session values (TIME('9:00:00'), TIME('10:00:00'), DATE('2019-02-14'), '103', 'Quirks of the Dewy Decimal System');
+insert into session values (TIME('21:00:00'), TIME('23:00:00'), DATE('2019-02-15'), '503', 'Famous Queen\'s Grads');
+insert into session values (TIME('10:00:00'), TIME('11:00:00'), DATE('2019-02-15'), '101', 'Why Mace Windu May Have Been a Sith Lord');
+insert into session values (TIME('17:00:00'), TIME('20:00:00'), DATE('2019-02-14'), 'E14', 'What Are Ferarri Owners Compensating For?');
+
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'David','Miller');
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore');
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'David','Miller');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'Robert','Moore');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss',  'Adam', 'Lopez');
+insert into is_speaking values (TIME('9:00:00'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker');
+insert into is_speaking values (TIME('21:00:00'), '503', 'Famous Queen\'s Grads', 'Virion','Bell');
+insert into is_speaking values (TIME('10:00:00'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell');
+insert into is_speaking values (TIME('17:00:00'), 'E14', 'What Are Ferarri Owners Compensating For?', 'Celica', 'Turner');
+
+
+/* status values */
+insert into Sponsor_status values('Platinum', 10000, 5); 
+insert into Sponsor_status values('Gold', 5000, 4); 
+insert into Sponsor_status values('Silver', 3000, 3); 
+insert into Sponsor_status values('Bronze', 1000, 0); 
+
+
+/* companies */
+insert into Company values('Google', 4, 'Platinum');
+insert into Company values('Facebook', 2, 'Gold');
+insert into Company values('Microsoft', 3, 'Silver');
+insert into Company values('Apple', 0, 'Bronze');
+
+
+
+/* job ads */
+insert into Ad values('Butcher', 'Kamloops', 'BC', 50000, 'Google'); 
+insert into Ad values('Baker', 'Barrie', 'ON', 60000, 'Facebook'); 
+insert into Ad values('Candlestick Maker', 'Saguenay', 'QC', 70000, 'Microsoft'); 
+insert into Ad values('Junior Dev', 'Cavendish', 'PEI', 80000, 'Apple'); 
+insert into Ad values('Butcher','Kamloops','BC', 50000, 'Apple');
 
 /*Attendings*/
 insert into Attendings values ('Liam','Smith');
@@ -199,122 +317,5 @@ insert into Sponsor values ('Juan', 'Scott', 'Microsoft','jscott@whohoo.com');
 insert into Sponsor values ('Thomas', 'Nelson', 'Microsoft','thomas_nelson@wahaha.com');
 insert into Sponsor values ('John', 'Gonzalez', 'Microsoft','jgonzalez@wahaha.com');
 insert into Sponsor values ('Charles', 'Green', 'Microsoft','greenc@qwl.com');
-
-
-/* commitee members */     
-insert into committee_member values ('Joshua', 'Charkow');
-insert into committee_member values ('Michael', 'Olson');
-insert into committee_member values ('Matthew', 'Kruzich');
-insert into committee_member values ('Spongebob', 'Squarepants');
-insert into committee_member values ('Patrick', 'Star');
-insert into committee_member values ('Squidward', 'Tentacles');
-insert into committee_member values ('Sandy', 'Cheeks');
-insert into committee_member values ('Pearl', 'Krabs');
-insert into committee_member values ('Ted', 'Mosby');
-insert into committee_member values ('Robin','Scherbatsky');
-insert into committee_member values ('Barney', 'Stinson');
-insert into committee_member values ('Marshall','Eriksen');
-insert into committee_member values ('Rachel', 'Green');
-insert into committee_member values ('Monica', 'Geller');
-insert into committee_member values ('Phoebe','Buffay');
-insert into committee_member values ('Joey','Tribbiani');
-insert into committee_member values ('Chandler','Bing');
-insert into committee_member values ('Ross', 'Geller');
-
-/* Committees */
-insert into committee values ('Food Committee', 'Joshua', 'Charkow');
-insert into committee values ('Programming Committee', 'Michael', 'Olson');
-insert into committee values ('Promotion Committee', 'Matthew', 'Kruzich');
-insert into committee values ('Finance Committee', 'Ted', 'Mosby');
-insert into committee values ('Safety Committee', 'Monica', 'Geller');
-insert into committee values ('Sponsorship Committee', 'Spongebob', 'Squarepants');
-
-
-/* is on */
-insert into is_on values ('Joshua', 'Charkow', 'Food Committee');
-insert into is_on values ('Robin','Scherbatsky','Food Committee');
-insert into is_on values ('Matthew', 'Kruzich', 'Food Committee');
-insert into is_on values ('Squidward', 'Tentacles', 'Food Committee');
-insert into is_on values ('Pearl', 'Krabs', 'Food Committee');
-
-
-insert into is_on values ('Michael', 'Olson', 'Programming Committee');
-insert into is_on values ('Matthew', 'Kruzich', 'Programming Committee');
-insert into is_on values ('Joshua', 'Charkow', 'Programming Committee');
-insert into is_on values ('Phoebe','Buffay','Programming Committee');
-
-insert into is_on values ('Matthew', 'Kruzich', 'Promotion Committee');
-insert into is_on values ('Ross', 'Geller','Promotion Committee');
-insert into is_on values ('Squidward', 'Tentacles', 'Promotion Committee');
-insert into is_on values ('Marshall','Eriksen','Promotion Committee');
-
-
-
-insert into is_on values ('Ted', 'Mosby', 'Finance Committee');
-insert into is_on values ('Robin','Scherbatsky','Finance Committee');
-insert into is_on values ('Barney', 'Stinson','Finance Committee');
-insert into is_on values ('Marshall','Eriksen','Finance Committee');
-
-
-insert into is_on values ('Monica', 'Geller', 'Safety Committee');
-insert into is_on values ('Phoebe','Buffay','Safety Committee');
-insert into is_on values ('Joey','Tribbiani','Safety Committee');
-insert into is_on values ('Chandler','Bing','Safety Committee');
-insert into is_on values ('Ross', 'Geller','Safety Committee');
-
-
-insert into is_on values ('Spongebob', 'Squarepants', 'Sponsorship Committee');
-insert into is_on values ('Patrick', 'Star','Sponsorship Committee');
-insert into is_on values ('Squidward', 'Tentacles', 'Sponsorship Committee');
-insert into is_on values ('Sandy', 'Cheeks', 'Sponsorship Committee');
-insert into is_on values ('Pearl', 'Krabs', 'Sponsorship Committee');
-
-insert into session values (TIME('12:00:00'), TIME('13:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme');
-insert into session values (TIME('14:00:00'), TIME('15:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss');
-insert into session values (TIME('9:00:00'), TIME('10:00:00'), DATE('2019-02-14'), '103', 'Quirks of the Dewy Decimal System');
-insert into session values (TIME('21:00:00'), TIME('23:00:00'), DATE('2019-02-15'), '503', 'Famous Queen\'s Grads');
-insert into session values (TIME('10:00:00'), TIME('11:00:00'), DATE('2019-02-15'), '101', 'Why Mace Windu May Have Been a Sith Lord');
-insert into session values (TIME('17:00:00'), TIME('20:00:00'), DATE('2019-02-14'), 'E14', 'What Are Ferarri Owners Compensating For?');
-
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'David','Miller');
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore');
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'David','Miller');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'Robert','Moore');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss',  'Adam', 'Lopez');
-insert into is_speaking values (TIME('9:00:00'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker');
-insert into is_speaking values (TIME('21:00:00'), '503', 'Famous Queen\'s Grads', 'Virion','Bell');
-insert into is_speaking values (TIME('10:00:00'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell');
-insert into is_speaking values (TIME('17:00:00'), 'E14', 'What Are Ferarri Owners Compensating For?', 'Celica', 'Turner');
-
-insert into rooms values('001', 2);
-insert into rooms values('011', 3);
-insert into rooms values('123', 4);
-insert into rooms values('124', 4);
-insert into rooms values('203', 2);
-insert into rooms values('433', 3);
-
-/* status values */
-insert into Sponsor_status values('Platinum', 10000, 5); 
-insert into Sponsor_status values('Gold', 5000, 4); 
-insert into Sponsor_status values('Silver', 3000, 3); 
-insert into Sponsor_status values('Bronze', 1000, 0); 
-
-
-/* companies */
-insert into Company values('Google', 4, 'Platinum');
-insert into Company values('Facebook', 2, 'Gold');
-insert into Company values('Microsoft', 3, 'Silver');
-insert into Company values('Apple', 0, 'Bronze');
-
-
-
-/* job ads */
-insert into Ad values('Butcher', 'Kamloops', 'BC', 50000, 'Google'); 
-insert into Ad values('Baker', 'Barrie', 'ON', 60000, 'Facebook'); 
-insert into Ad values('Candlestick Maker', 'Saguenay', 'QC', 70000, 'Microsoft'); 
-insert into Ad values('Junior Dev', 'Cavendish', 'PEI', 80000, 'Apple'); 
-insert into Ad values('Butcher','Kamloops','BC', 50000, 'Apple');
-
 
     
