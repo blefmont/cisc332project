@@ -1,22 +1,22 @@
 create table company
-  (varchar(32) name not null primary key,
-   int emails_sent,
-   varchar(32) sponsor_level,
+  (name varchar(32) not null primary key,
+   emails_sent int not null,
+   sponsor_level varchar(32) not null,
    foreign key(sponsor_level) references status(metal) 
    )
    
 create table status
-  (varchar(32) metal not null primary key,
-   int amount,
-   int email_cap
+  (metal varchar(32) not null primary key,
+   amount int,
+   email_cap int
    )
    
  create table ad
-  (varchar(32) job_title not null primary key,
-   varchar(32) city,
-   varchar(32) province,
-   int salary,
-   varchar(32) company,
+  (job_title varchar(32) not null primary key,
+   city varchar(32),
+   province varchar(32),
+   salary int,
+   company varchar(32),
    foreign key(company) references company(name) on delete cascade
    )
    
