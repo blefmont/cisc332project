@@ -7,8 +7,10 @@ create table Attendings
 create table Student(
     fname varchar(32) not null,
     lname varchar(32) not null,
+	roomnumber varchar(8),
     primary key (fname, lname),
-    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade
+    foreign key (fname, lname) references Attendings(fname, lname) on delete cascade,
+	foreign key (roomnumber) references rooms(roomnumber) on delete set null
 );
 
 create table Professional(
@@ -74,23 +76,23 @@ insert into Attendings values ('Virion','Bell');
 
 
 
-insert into Student values ('Liam','Smith');
-insert into Student values ('Noah','Johnson');
-insert into Student values ('William','Jones');
-insert into Student values ('James','Brown');
-insert into Student values ('Logan','Davis');
-insert into Student values ('David','Miller');
-insert into Student values ('Robert','Moore');
-insert into Student values ('Michael','Taylor');
-insert into Student values ('Richard','Anderson');
-insert into Student values ('Emma','Jackson');
-insert into Student values ('Mary','Thompson');
-insert into Student values ('Olivia','Garcia');
-insert into Student values ('Jennifer','Clark');
-insert into Student values ('Victoria','Robinson');
-insert into Student values ('Zoe','Lewis');
-insert into Student values ('Mia','Allen');
-insert into Student values ('Alice','Lee');
+insert into Student values ('Liam','Smith', '001');
+insert into Student values ('Noah','Johnson', '001');
+insert into Student values ('William','Jones', '011');
+insert into Student values ('James','Brown', '011');
+insert into Student values ('Logan','Davis', '011');
+insert into Student values ('David','Miller', '123');
+insert into Student values ('Robert','Moore', '123');
+insert into Student values ('Michael','Taylor', '123');
+insert into Student values ('Richard','Anderson', '123');
+insert into Student values ('Emma','Jackson', '124');
+insert into Student values ('Mary','Thompson', '203');
+insert into Student values ('Olivia','Garcia', '203');
+insert into Student values ('Jennifer','Clark', null);
+insert into Student values ('Victoria','Robinson', null);
+insert into Student values ('Zoe','Lewis', null);
+insert into Student values ('Mia','Allen', null);
+insert into Student values ('Alice','Lee', null);
 
 
 insert into Sponsor values ('Ava', 'Young');
