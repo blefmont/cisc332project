@@ -1,16 +1,18 @@
 Assume attendings have unique names
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
+- Assume 'mailing list' sponsors have access to is an email list 
+- assume no email longer than 128 characters
 
 Assume committee members have unique names
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
 
 Assume session names are unique
-    - name cannot be longer than 64 characters 
+    - name cannot be longer than 32 characters 
 
 Assume Subcomittee will have a unique name
-    - name cannot be longer than 64 characters 
+    - name cannot be longer than 32 characters 
 
 Assume subcomittee must have a chair
 
