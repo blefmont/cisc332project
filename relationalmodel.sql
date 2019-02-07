@@ -194,17 +194,6 @@ insert into session values (TIME('21:00:00'), TIME('23:00:00'), DATE('2019-02-15
 insert into session values (TIME('10:00:00'), TIME('11:00:00'), DATE('2019-02-15'), '101', 'Why Mace Windu May Have Been a Sith Lord');
 insert into session values (TIME('17:00:00'), TIME('20:00:00'), DATE('2019-02-14'), 'E14', 'What Are Ferarri Owners Compensating For?');
 
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'David','Miller');
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore');
-insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'David','Miller');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'Robert','Moore');
-insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss',  'Adam', 'Lopez');
-insert into is_speaking values (TIME('9:00:00'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker');
-insert into is_speaking values (TIME('21:00:00'), '503', 'Famous Queen\'s Grads', 'Virion','Bell');
-insert into is_speaking values (TIME('10:00:00'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell');
-insert into is_speaking values (TIME('17:00:00'), 'E14', 'What Are Ferarri Owners Compensating For?', 'Celica', 'Turner');
-
 
 /* status values */
 insert into Sponsor_status values('Platinum', 10000, 5); 
@@ -318,4 +307,15 @@ insert into Sponsor values ('Thomas', 'Nelson', 'Microsoft','thomas_nelson@wahah
 insert into Sponsor values ('John', 'Gonzalez', 'Microsoft','jgonzalez@wahaha.com');
 insert into Sponsor values ('Charles', 'Green', 'Microsoft','greenc@qwl.com');
 
-    
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'David','Miller');
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore');
+insert into is_speaking values (TIME('12:00:00'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'David','Miller');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss', 'Robert','Moore');
+insert into is_speaking values (TIME('14:00:00'), '101', 'How to be your own boss',  'Adam', 'Lopez');
+insert into is_speaking values (TIME('9:00:00'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker');
+insert into is_speaking values (TIME('21:00:00'), '503', 'Famous Queen\'s Grads', 'Virion','Bell');
+insert into is_speaking values (TIME('10:00:00'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell');
+insert into is_speaking values (TIME('17:00:00'), 'E14', 'What Are Ferarri Owners Compensating For?', 'Celica', 'Turner');
+
+ 
