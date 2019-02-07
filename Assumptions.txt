@@ -18,11 +18,9 @@
 
 -Assume a subcomittee member can be the chair of multiple subcomittees
 
--Assume committee member must be on at least one committee
-
+-Assume committee member does not have to be on a sub committee.
 
 -Wording a bit ambigious regarding rooms, assume that each room has a distinct number (rather than rooms with a different amount of beds can have the same number)
-
 
 - Assume mailing list of attendings only includes email, does not include physical address
 - Assume attendings only have one email 
@@ -30,8 +28,6 @@
 - Assume that sessions will not span 2 days. 
 
 - Different companies may have the same job title, but each company cannot have more than one ad with the same title 
-
-- Session must have at least one speaker 
 
 - Only one session can happen per room at a single start time.
 
