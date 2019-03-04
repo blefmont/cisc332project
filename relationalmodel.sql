@@ -5,6 +5,7 @@ create table Rooms(
 create table Attendees
     (fname varchar(32) not null,
      lname varchar(32) not null,
+     email varchar(128) not null, 
      primary key (fname, lname)
      );
      
@@ -219,49 +220,48 @@ insert into Ad values('Junior Dev', 'Cavendish', 'PEI', 80000, 'Apple');
 insert into Ad values('Butcher','Kamloops','BC', 50000, 'Apple');
 
 /*Attendees*/
-insert into Attendees values ('Liam','Smith');
-insert into Attendees values ('Noah','Johnson');
-insert into Attendees values ('William','Jones');
-insert into Attendees values ('James','Brown');
-insert into Attendees values ('Logan','Davis');
-insert into Attendees values ('David','Miller');
-insert into Attendees values ('Robert','Moore');
-insert into Attendees values ('Michael','Taylor');
-insert into Attendees values ('Richard','Anderson');
-insert into Attendees values ('Emma','Jackson');
-insert into Attendees values ('Mary','Thompson');
-insert into Attendees values ('Olivia','Garcia');
-insert into Attendees values ('Jennifer','Clark');
-insert into Attendees values ('Victoria','Robinson');
-insert into Attendees values ('Zoe','Lewis');
-insert into Attendees values ('Mia','Allen');
-insert into Attendees values ('Alice','Lee');
+insert into Attendees values ('Mae', 'Perez','mperez@whohoo.com');
+insert into Attendees values ('Lissa', 'Roberts', 'lroberts@fe.com');
+insert into Attendees values ('Celica', 'Turner', 'lroberts@sov.com');
+insert into Attendees values ('Priscilla','Phillips', 'lroberts@fe.com');
+insert into Attendees values ('Evelyn','Campbell', 'lroberts@fe.com');
+insert into Attendees values ('Roy','Parker', 'roy1234@fe.com');
+insert into Attendees values ('Chrom','Evans', 'chrom@fea.com');
+insert into Attendees values ('Lucina','Evans', 'lucina@fea.com');
+insert into Attendees values ('Gray', 'Stewart', 'gstewart@sov.com');
+insert into Attendees values ('Alm', 'Sanchez', 'alm@sov.com');
+insert into Attendees values ('Robin','Morris', 'rmorris@fea.com');
+insert into Attendees values ('Fredrick','Rogers', 'frogers@fea.com');
+insert into Attendees values ('Virion','Bell', 'virion@fea.com');
 
+insert into Attendees values ('Liam','Smith','lsmith@whoohoo.com');
+insert into Attendees values ('Noah','Johnson','njohnson@whoohoo.com');
+insert into Attendees values ('William','Jones', 'wjones@whoohoo.com');
+insert into Attendees values ('James','Brown', 'jbrown@whoohoo.com');
+insert into Attendees values ('Logan','Davis','fluffycorn17@wahaha.com');
+insert into Attendees values ('David','Miller','dmiller@whohoo.com');
+insert into Attendees values ('Robert','Moore','rmoore@whohoo.com');
+insert into Attendees values ('Michael','Taylor','mtaylor@whohoo.com');
+insert into Attendees values ('Richard','Anderson','randerson@wahaha.com');
+insert into Attendees values ('Emma','Jackson', 'em12@whohoo.com');
+insert into Attendees values ('Mary','Thompson', 'mthompson@whohoo.com');
+insert into Attendees values ('Olivia','Garcia', 'ogarcia@whohoo.com');
+insert into Attendees values ('Jennifer','Clark','jclark@whohoo.com');
+insert into Attendees values ('Victoria','Robinson', 'vrobinson@whohoo.com');
+insert into Attendees values ('Zoe','Lewis', 'zlewis@wahaha.com');
+insert into Attendees values ('Mia','Allen','mallen@wahaha.com');
+insert into Attendees values ('Alice','Lee', 'alee@whohoo.com');
 
-insert into Attendees values ('Ava', 'Young');
-insert into Attendees values ('Charlotte', 'King');
-insert into Attendees values ('Julia', 'Wright');
-insert into Attendees values ('Adam', 'Lopez');
-insert into Attendees values ('Jacob', 'Hill');
-insert into Attendees values ('Oliver', 'Martin');
-insert into Attendees values ('Juan', 'Scott');
-insert into Attendees values ('Thomas', 'Nelson');
-insert into Attendees values ('John', 'Gonzalez');
-insert into Attendees values ('Charles', 'Green');
-
-insert into Attendees values ('Mae', 'Perez');
-insert into Attendees values ('Lissa', 'Roberts');
-insert into Attendees values ('Celica', 'Turner');
-insert into Attendees values ('Priscilla','Phillips');
-insert into Attendees values ('Evelyn','Campbell');
-insert into Attendees values ('Roy','Parker');
-insert into Attendees values ('Chrom','Evans');
-insert into Attendees values ('Lucina','Evans');
-insert into Attendees values ('Gray', 'Stewart');
-insert into Attendees values ('Alm', 'Sanchez');
-insert into Attendees values ('Robin','Morris');
-insert into Attendees values ('Fredrick','Rogers');
-insert into Attendees values ('Virion','Bell');
+insert into Attendees values ('Ava', 'Young', 'ayoung@whohoo.com');
+insert into Attendees values ('Charlotte', 'King', 'cking@whohoo.com');
+insert into Attendees values ('Julia', 'Wright','jwright@wahaha.com');
+insert into Attendees values ('Adam', 'Lopez', 'fluffycorn18@wahaha.ca');
+insert into Attendees values ('Jacob', 'Hill', 'jhill@whohoo.com');
+insert into Attendees values ('Oliver', 'Martin','omartin@whohoo.com');
+insert into Attendees values ('Juan', 'Scott','jscott@whohoo.com');
+insert into Attendees values ('Thomas', 'Nelson','thomas_nelson@wahaha.com');
+insert into Attendees values ('John', 'Gonzalez','jgonzalez@wahaha.com');
+insert into Attendees values ('Charles', 'Green','greenc@qwl.com');
 
 /*Professional*/
 insert into Professional values ('Mae', 'Perez','mperez@whohoo.com');

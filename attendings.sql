@@ -8,6 +8,7 @@ create table Student(
     fname varchar(32) not null,
     lname varchar(32) not null,
 	roomnumber varchar(8),
+    email varchar(128),
     primary key (fname, lname),
     foreign key (fname, lname) references Attendings(fname, lname) on delete cascade,
 	foreign key (roomnumber) references rooms(roomnumber) on delete set null
