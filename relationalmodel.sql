@@ -5,8 +5,8 @@ create table Rooms(
 create table Attendees
     (fname varchar(32) not null,
      lname varchar(32) not null,
-     email varchar(128) not null, 
-     primary key (fname, lname)
+     email varchar(128) not null,
+     primary key (fname, lname, email)
      );
      
 create table Student(
@@ -14,8 +14,8 @@ create table Student(
     lname varchar(32) not null,
     email varchar(128),
 	roomnumber varchar(8),
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendees(fname, lname) on delete cascade,
+    primary key (fname, lname, email),
+    foreign key (fname, lname, email) references Attendees(fname, lname, email) on delete cascade,
 	foreign key (roomnumber) references Rooms(roomnumber) on delete set null
 	
 );
@@ -24,8 +24,8 @@ create table Professional(
     fname varchar(32) not null,
     lname varchar(32) not null,
     email varchar(128),
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendees(fname, lname) on delete cascade
+    primary key (fname, lname, email),
+    foreign key (fname, lname, email) references Attendees(fname, lname, email) on delete cascade
 );
 
 
@@ -50,8 +50,8 @@ create table Sponsor(
     lname varchar(32) not null,
     representing varchar(32) not null,
     email varchar(128),
-    primary key (fname, lname),
-    foreign key (fname, lname) references Attendees(fname, lname) on delete cascade,
+    primary key (fname, lname, email),
+    foreign key (fname, lname, email) references Attendees(fname, lname, email) on delete cascade,
     foreign key (representing) references Company(name) on delete cascade
 );
    
@@ -101,14 +101,15 @@ create table Session
 	
 create table Is_speaking
 	(starttime time not null,
+    session_day date not null,
 	room varchar(32) not null,
 	name varchar(64) not null,
-	session_day date not null,
 	fname varchar(32) not null,
 	lname varchar(32) not null,
+    email varchar(128) not null,
 	primary key(starttime, session_day, room, name, fname, lname),
-	foreign key (starttime, room, name) references Session(starttime, room, name) on delete cascade,
-	foreign key (fname, lname) references Attendees(fname, lname) on delete cascade
+	foreign key (starttime,session_day,room,name) references Session(starttime, session_day,room,name) on delete cascade,
+	foreign key (fname, lname, email) references Attendees(fname, lname, email) on delete cascade
 	);
 	
 insert into Rooms values('001', 2);
@@ -222,7 +223,7 @@ insert into Ad values('Butcher','Kamloops','BC', 50000, 'Apple');
 /*Attendees*/
 insert into Attendees values ('Mae', 'Perez','mperez@whohoo.com');
 insert into Attendees values ('Lissa', 'Roberts', 'lroberts@fe.com');
-insert into Attendees values ('Celica', 'Turner', 'lroberts@sov.com');
+insert into Attendees values ('Celica', 'Turner', 'cturner@sov.com');
 insert into Attendees values ('Priscilla','Phillips', 'lroberts@fe.com');
 insert into Attendees values ('Evelyn','Campbell', 'lroberts@fe.com');
 insert into Attendees values ('Roy','Parker', 'roy1234@fe.com');
@@ -266,7 +267,7 @@ insert into Attendees values ('Charles', 'Green','greenc@qwl.com');
 /*Professional*/
 insert into Professional values ('Mae', 'Perez','mperez@whohoo.com');
 insert into Professional values ('Lissa', 'Roberts', 'lroberts@fe.com');
-insert into Professional values ('Celica', 'Turner', 'lroberts@sov.com');
+insert into Professional values ('Celica', 'Turner', 'cturner@sov.com');
 insert into Professional values ('Priscilla','Phillips', 'lroberts@fe.com');
 insert into Professional values ('Evelyn','Campbell', 'lroberts@fe.com');
 insert into Professional values ('Roy','Parker', 'roy1234@fe.com');
@@ -308,15 +309,14 @@ insert into Sponsor values ('Thomas', 'Nelson', 'Microsoft','thomas_nelson@wahah
 insert into Sponsor values ('John', 'Gonzalez', 'Microsoft','jgonzalez@wahaha.com');
 insert into Sponsor values ('Charles', 'Green', 'Microsoft','greenc@qwl.com');
 
-insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'David','Miller');
-insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore');
-insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez');
-insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss', 'David','Miller');
-insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss', 'Robert','Moore');
-insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss',  'Adam', 'Lopez');
-insert into Is_speaking values (TIME('9:00:00'), DATE('2019-02-14'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker');
-insert into Is_speaking values (TIME('21:00:00'), DATE('2019-02-15'), '503', 'Famous Queen\'s Grads', 'Virion','Bell');
-insert into Is_speaking values (TIME('10:00:00'), DATE('2019-02-15'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell');
-insert into Is_speaking values (TIME('17:00:00'), DATE('2019-02-15'), 'E14', 'What Are Ferarri Owners Compensating For?', 'Celica', 'Turner');
+insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'David','Miller','dmiller@whohoo.com');
+insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'Robert','Moore', 'rmoore@whohoo.com');
+insert into Is_speaking values (TIME('12:00:00'), DATE('2019-02-14'), '101', 'Intro to running a pyramid scheme', 'Adam', 'Lopez', 'fluffycorn18@wahaha.ca');
+insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss', 'David','Miller', 'dmiller@whohoo.com' );
+insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss', 'Robert','Moore', 'rmoore@whohoo.com');
+insert into Is_speaking values (TIME('14:00:00'), DATE('2019-02-14'), '101', 'How to be your own boss',  'Adam', 'Lopez', 'fluffycorn18@wahaha.ca' );
+insert into Is_speaking values (TIME('9:00:00'), DATE('2019-02-14'), '103', 'Quirks of the Dewy Decimal System', 'Roy','Parker', 'roy1234@fe.com');
+insert into Is_speaking values (TIME('21:00:00'), DATE('2019-02-15'), '503', 'Famous Queen\'s Grads', 'Virion','Bell', 'virion@fea.com');
+insert into Is_speaking values (TIME('10:00:00'), DATE('2019-02-15'), '101', 'Why Mace Windu May Have Been a Sith Lord', 'Virion','Bell', 'virion@fea.com');
+insert into is_speaking values (TIME('17:00:00'), DATE('2019-02-14'), 'E14', 'What Are Ferarri Owners Compensating For?','Celica', 'Turner', 'cturner@sov.com');
 
- 
