@@ -2,8 +2,8 @@ create table Rooms(
 	roomnumber varchar(8) not null primary key,
 	numberofbeds int not null
 	);
-create table Attendees
-    (fname varchar(32) not null,
+create table Attendees(
+     fname varchar(32) not null,
      lname varchar(32) not null,
      email varchar(128) not null,
      primary key (fname, lname, email)
