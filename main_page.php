@@ -5,6 +5,10 @@
 </head>
 <body>
   <h1>Conference Database</h1>
-  <p>Welcome</p>
+  <p>
+  <a href="/jobs.php">Jobs</a> 
+  <a href="/companies.php">Companies</a> 
+  </p>
+
 </body>
 </html>
