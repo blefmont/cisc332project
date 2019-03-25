@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="firstPage.css" type="text/css" rel="stylesheet" >
+<link href="stylesheet.css" type="text/css" rel="stylesheet" >
 </head>
 <body>
 <h2>Committee Members</h2>
