@@ -56,7 +56,7 @@
 	
 ?>
 
-<p><a href="attendees.html">Back</a></p>
+<p><a href="main_page.php">Back</a></p>
 
 </body>
 </html> 
