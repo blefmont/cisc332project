@@ -10,7 +10,7 @@
   <br><br>
   <a href="/companies.php">Companies</a>
   <br><br>
-  <a href="/committee.php">Committies</a>
+  <a href="/committee.php">Committees</a>
   <br><br>
   <a href="/schedule_return.php">Sessions</a>
   <br><br>
