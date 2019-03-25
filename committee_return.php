@@ -11,7 +11,7 @@
 $comm = $_POST["committeeName"];
 echo "<p>Here is a list of the $comm members </p>";
 echo "<p>The bolded entry is the committee leader </p>";
-echo "<table><tr><th colspan=\"2\">Name</th><th></th></tr>";
+echo "<table><tr><th align=\"center\" colspan=\"2\">Name</th></tr>";
 
 #connect to the database
 $pdo = new PDO('mysql:host=localhost;dbname=conference_database', "root", "");
