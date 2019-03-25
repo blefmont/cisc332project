@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="firstPage.css" type="text/css" rel="stylesheet" >
+<link href="stylesheet.css" type="text/css" rel="stylesheet" >
 </head>
 <body>
 
@@ -129,7 +129,7 @@ if (isset($_POST['date'])){
             #make the event links clickable so that they can lead to a page where events can be modified
             echo "<td rowspan=\"".$len_time."\">";
             echo "<table>";
-            echo "<tr><td colspan=\"5\"> <a href=\"http://localhost/schedule_update.php?id=".$row['id']."\">".$row["name"]."</a></td></tr>";
+            echo "<tr><td colspan=\"5\"> <a href=\"schedule_update.php?id=".$row['id']."\">".$row["name"]."</a></td></tr>";
             #get the speaker's information 
             echo "<tr>";
             $sql2 = "select * from is_speaking where id=?";
