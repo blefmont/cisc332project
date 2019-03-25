@@ -30,23 +30,12 @@ if(isset($_POST['add_company']))
 <h1>
 Manage Companies
 </h1>
-<p>
-<?php 
-#connect to the database
-
-$sql = "select * from company";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([]);   #bind the parameters
-echo "<table><tr><th>Company name</th><th>Sponsor level</th></tr>";
-while ($row = $stmt->fetch()) {
-	echo "<tr><td>".$row["name"]."</td><td>".$row["sponsor_level"]."</td></tr>";
-}
-?>
-</p>
+<body>
 <p>Delete company
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 	<select name="deleteCompany">
 <?php
+$sql = "select * from company";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([]);   #bind the parameters
 while ($row = $stmt->fetch()) {
@@ -68,3 +57,20 @@ Sponsor level:
 <input type="submit" name="add_company">
 </form> 
 </p>
+<p>
+<?php 
+#connect to the database
+
+
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([]);   #bind the parameters
+echo "<table><tr><th>Company name</th><th>Sponsor level</th></tr>";
+while ($row = $stmt->fetch()) {
+	echo "<tr><td>".$row["name"]."</td><td>".$row["sponsor_level"]."</td></tr>";
+}
+?>
+</table>
+</p>
+<p><a href="main_page.php">Back to Main Page</a></p>
+<body>
+</html>

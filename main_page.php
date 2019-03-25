@@ -14,7 +14,7 @@
   <br><br>
   <a href="/schedule_return.php">Sessions</a>
   <br><br>
-  <a href="/attendees.html">Attendees</a>
+  <a href="/attendees.php">Attendees</a>
   <br><br>
   <a href="/finances.php">Finances</a>
   </p>

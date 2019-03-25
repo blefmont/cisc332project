@@ -54,5 +54,6 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
+<p><a href="main_page.php">Back to Main Page</a></p>
 </body>
 </html>
