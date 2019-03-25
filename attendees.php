@@ -44,8 +44,18 @@
 			<p>email</p>
 			<input type="text" name="email"><br>
 			<p>Company</p>
-			<input type="text" name="representing"><br>
-			<br>
+			<select name="representing">
+				<?php
+				$pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
+				$sql = "select * from company";
+				$stmt = $pdo->prepare($sql);   #create the query
+				$stmt->execute([]);   #bind the parameters
+				while ($row = $stmt->fetch()) {
+					echo "<option value = '".$row["name"]."'>".$row["name"]."</option>";
+				}
+				?>
+			</select>
+			<br><br>
 			<input type="submit">
 		</form>
 	
@@ -53,7 +63,6 @@
 		<form action="hotel_occupants.php" method="post">
 			<p>Room Number</p>
 			<?php
-				$pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
 				$sql = "select roomnumber from rooms";
 				$stmt = $pdo->prepare($sql);
 				$stmt->execute();
