@@ -6,7 +6,7 @@
 <body>
   <h1>Commitee Page</h1>
   <p>Welcome</p>
-  <a href = "http://localhost/main_page.php">Main Page</a>
+  <a href = "main_page.php">Main Page</a>
 
   <p> Please Pick a Committee: </p>
   <form action="committee_return.php" method="post">
