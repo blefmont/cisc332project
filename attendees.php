@@ -7,7 +7,7 @@
 		<h1>Conference Attendees</h1>
 		
 		<h2>View Attendees</h2>
-		<p><a href="attendees.php">Click here to view a list of all conference attendees</a></p>
+		<p><a href="show_attendees.php">Click here to view a list of all conference attendees</a></p>
 	
 		<h2>Add Student</h2>
 		<form action="add_student.php" method="post">
@@ -57,9 +57,12 @@
 				$sql = "select roomnumber from rooms";
 				$stmt = $pdo->prepare($sql);
 				$stmt->execute();
-
-				while($row = $stmt.fetch()) {
-					echo "
+			        echo "<select name=\"roomNumber\">";
+                                #stmt contains the result, place it in a table
+                                while ($row = $stmt->fetch()){
+                                echo "<option value=\"".$row["roomnumber"]."\">".$row["roomnumber"]."</option>";
+   				}
+                                echo "</select>";
 				
 			?>
 			<input type="submit">
