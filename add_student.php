@@ -50,7 +50,7 @@ else {
 	echo "<p>$fname $lname was added to the database.</p>";
 }
 ?>
-<p><a href="attendees.html">Back</a></p>
+<p><a href="attendees.php">Back</a></p>
 </table>
 </body>
 </html> 
