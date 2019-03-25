@@ -54,7 +54,13 @@
 			<p>Room Number</p>
 			<?php
 				$pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
-				$sql = "select 
+				$sql = "select roomnumber from rooms";
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
+
+				while($row = $stmt.fetch()) {
+					echo "
+				
 			?>
 			<input type="submit">
 		</form>
