@@ -17,6 +17,7 @@
    $stmt->execute(); #execute query
    echo "<select name=\"committeeName\">";
    #stmt contains the result, place it in a table
+   echo "<option value=\"\">"." "."</option>";
    while ($row = $stmt->fetch()){
        echo "<option value=\"".$row["name"]."\">".$row["name"]."</option>";
    }
