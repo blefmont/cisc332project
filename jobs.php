@@ -17,11 +17,11 @@ $stmt->execute([]);   #bind the parameters
 	<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 		<select name="filterCompany">
 			<option value = 'all'>All</option>
-<?php
-while ($row = $stmt->fetch()) {
-	echo "<option value = '".$row["name"]."'>".$row["name"]."</option>";
-}
-?>
+			<?php
+			while ($row = $stmt->fetch()) {
+				echo "<option value = '".$row["name"]."'>".$row["name"]."</option>";
+			}
+			?>
 		</select>
 		<input type="submit" name="formSubmit" value="Submit" >
 	</form>
@@ -39,7 +39,7 @@ if(isset($_POST['filterCompany']) )
 	}
 	else {$sql = "select * from ad where company = ?";}	
 }
-else { $sql = "select * from ad where company = ?";}
+else { $sql = "select * from ad";}
 
 
 $stmt = $pdo->prepare($sql);   #create the query
