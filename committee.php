@@ -19,7 +19,14 @@
    #stmt contains the result, place it in a table
    echo "<option value=\"\">"." "."</option>";
    while ($row = $stmt->fetch()){
-       echo "<option value=\"".$row["name"]."\">".$row["name"]."</option>";
+       if ($_POST["committeeName"] == $row["name"]){
+         echo "<option value=\"".$row["name"]."\" selected =\"selected\">".$row["name"]."</option>";
+       }
+       else {
+           echo "<option value=\"".$row["name"]."\">".$row["name"]."</option>";
+       }
+         
+        
    }
    echo "</select>";
   ?>
@@ -29,7 +36,7 @@
 
 
 <?php
-if (isset($_POST["committeeName"])){
+if (isset($_POST["committeeName"]) and $_POST["committeeName"] != ""){
     $comm = $_POST["committeeName"];
     echo "<p>Here is a list of the $comm members </p>";
     echo "<p>The bolded entry is the committee leader </p>";
