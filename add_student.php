@@ -26,7 +26,7 @@ else {
 	$occupancy = $stmt->fetch();
 }
 
-	$sql = "select numberofbeds from rooms where roomnumber = ?"
+	$sql = "select numberofbeds from rooms where roomnumber = ?";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute([$roomNumber]);
 	$capacity = $stmt->fetch();
