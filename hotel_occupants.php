@@ -34,7 +34,7 @@
 	}
 ?>
 
-<p><a href="attendees.html">Back</a></p>
+<p><a href="attendees.php">Back</a></p>
 
 </body>
 </html> 
