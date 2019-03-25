@@ -59,6 +59,7 @@ else { //room needed
 	
 			echo "<h2>Error</h2>";
 			echo "<p>The selected hotel room is full. Please try again with a different hotel room number.</p>";
+		}
 		else {
 	
 			$stmt = $pdo->prepare("insert into Attendees values(:fname, :lname, :email)");
