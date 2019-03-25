@@ -10,11 +10,13 @@
   <br><br>
   <a href="/companies.php">Companies</a>
   <br><br>
-  <a href="/sessions.html">Sessions</a>
+  <a href="/committee.php">Committies</a>
+  <br><br>
+  <a href="/schedule_return.php">Sessions</a>
   <br><br>
   <a href="/attendees.html">Attendees</a>
   <br><br>
-  <a href="/attendees.html">Finances</a>
+  <a href="/finances.php">Finances</a>
   </p>
 
 </body>
