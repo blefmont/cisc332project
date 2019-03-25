@@ -1,15 +1,29 @@
 body {
-  margin: 45px;
+  margin: 15vh 15vw 15vh 15vw;
   font-family: arial, sans-serif;
-  font-size: 14 px;
+  font-size: 14px;
   }
 
 h1 {
-  font-size: 36 px;
-  text-align: center;
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
 }
 
 p {
-  text-align: center;
+
 }
 
+th, td, table{
+	text-align: left;
+	padding: 8px 30px 8px 8px;
+	border-collapse: collapse;
+	border: 1px solid #ccc
+	
+}
+
+tr:nth-child(even) {
+	background-color: #eee
+}
