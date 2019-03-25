@@ -53,7 +53,16 @@ Company name:
 <input type="text" name="company_name">
 <br>
 Sponsor level:
-<input type="text" name="sponsor_level"><br><br>
+<select name="sponsor_level">
+<?php
+$sql = "select * from sponsor_status";
+$stmt = $pdo->prepare($sql);   #create the query
+$stmt->execute([]);   #bind the parameters
+while ($row = $stmt->fetch()) {
+	echo "<option value = '".$row["metal"]."'>".$row["metal"]."</option>";
+}
+?>
+</select>
 <input type="submit" name="add_company">
 </form> 
 </p>
@@ -61,7 +70,7 @@ Sponsor level:
 <?php 
 #connect to the database
 
-
+$sql = "select * from company";
 $stmt = $pdo->prepare($sql);   #create the query
 $stmt->execute([]);   #bind the parameters
 echo "<table><tr><th>Company name</th><th>Sponsor level</th></tr>";
