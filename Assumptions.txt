@@ -1,10 +1,11 @@
--Assume attendings have unique names
+-Assume attendings have a unique combination of first name, last name and email
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
+    
 - Assume 'mailing list' sponsors have access to is an email list 
 - assume no email longer than 128 characters
 
--Assume committee members have unique names
+-Assume committee members have unique first and last name combination
     - first name cannot be longer than 32 characters
     - last name cannot be longer than 32 characters
 
@@ -35,4 +36,6 @@
 
 - If company is deleted from the database should delete all of their posted job titles
 
-- If company is deleted from the database all ascociated sponsors are deleted.\
+- If company is deleted from the database all ascociated sponsors are deleted.
+
+- Assume only 1 student per bed.
