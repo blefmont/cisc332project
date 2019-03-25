@@ -20,14 +20,18 @@ if($roomNumber < 1){
 }
 else {
 	
-	$sql = "select count(student) from student where roomnumber = ?";
+	$sql = "select count(fname) from student where roomnumber = ?";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute([$roomNumber]);
-	$occupancy = $stmt->fetch()
+	$occupancy = $stmt->fetch();
 }
 
+	$sql = "select numberofbeds from rooms where roomnumber = ?"
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute([$roomNumber]);
+	$capacity = $stmt->fetch();
 
-if($occupancy > 3) {
+if($occupancy["count(fname)"] >= $capacity["numberofbeds"]) {
 	
 	echo "<h2>Error</h2>";
 	echo "<p>The selected hotel room is full. Please try again with a different hotel room number.</p>";
