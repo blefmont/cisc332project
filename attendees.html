@@ -18,7 +18,7 @@
 			<p>email</p>
 			<input type="text" name="email"><br>
 			<p>Room Number <i>(enter 0 if no room)</i></p>
-			<input type="number" name="roomNumber"><br>
+			<input type="number" name="roomNumber" min="0"><br>
 			<br>
 			<input type="submit"><br>
 		</form>
@@ -52,8 +52,10 @@
 		<h2>View Hotel Room Occupants</h2>
 		<form action="hotel_occupants.php" method="post">
 			<p>Room Number</p>
-			<input type="number" name="roomNumber"><br>
-			<br>
+			<?php
+				$pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
+				$sql = "select 
+			?>
 			<input type="submit">
 		</form>
 		
