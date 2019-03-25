@@ -13,48 +13,67 @@ $roomNumber = $_POST["roomNumber"];
 
 $pdo = new PDO('mysql:host=localhost;dbname=conference_database', "root", "");
 
-if($roomNumber < 1){
-	
-	$occupancy = -1;
+if($roomNumber < 1){ //no room needed
+
 	$roomNumber = null;
+	
+	$stmt = $pdo->prepare("insert into Attendees values(:fname, :lname, :email)");
+			$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email]);
+	
+			$stmt = $pdo->prepare("insert into Student values(:fname, :lname, :email, :roomNumber)");
+			$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email, 'roomNumber' => $roomNumber]);
+		
+			echo "<h2>Success</h2>";
+			echo "<p>$fname $lname was added to the database.</p>";	
 }
-else {
+else { //room needed
 	
 	$sql = "select count(fname) from student where roomnumber = ?";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute([$roomNumber]);
 	$occupancy = $stmt->fetch();
-}
-
-	$sql = "select numberofbeds from rooms where roomnumber = ?";
-	$stmt = $pdo->prepare($sql);
-	$stmt->execute([$roomNumber]);
-	$capacity = $stmt->fetch();
-
-if($occupancy["count(fname)"] >= $capacity["numberofbeds"]) {
 	
-	echo "<h2>Error</h2>";
-	echo "<p>The selected hotel room is full. Please try again with a different hotel room number.</p>";
-}
-else {
-	
-	if($occupancy["count(student)"] == 0) {
+	if($occupancy["count(fname)"] == 0) {
 		
 		//add tuple to rooms
 		$stmt = $pdo->prepare("insert into Rooms values(:roomNumber,4)");
 		$stmt->execute([':roomNumber' => $roomNumber]);
+		
+		$stmt = $pdo->prepare("insert into Attendees values(:fname, :lname, :email)");
+		$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email]);
+	
+		$stmt = $pdo->prepare("insert into Student values(:fname, :lname, :email, :roomNumber)");
+		$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email, 'roomNumber' => $roomNumber]);
+		
+		echo "<h2>Success</h2>";
+		echo "<p>$fname $lname was added to the database.</p>";		
 	}
-	$stmt = $pdo->prepare("insert into Attendees values(:fname, :lname, :email)");
-	$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email]);
+	else {
+		
+		$sql = "select numberofbeds from rooms where roomnumber = ?";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([$roomNumber]);
+		$capacity = $stmt->fetch();
+		
+		if($occupancy["count(fname)"] >= $capacity["numberofbeds"]) {
 	
-	$stmt = $pdo->prepare("insert into Student values(:fname, :lname, :email, :roomNumber)");
-	$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email, 'roomNumber' => $roomNumber]);
+			echo "<h2>Error</h2>";
+			echo "<p>The selected hotel room is full. Please try again with a different hotel room number.</p>";
+		else {
 	
-	echo "<h2>Success</h2>";
-	echo "<p>$fname $lname was added to the database.</p>";
+			$stmt = $pdo->prepare("insert into Attendees values(:fname, :lname, :email)");
+			$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email]);
+	
+			$stmt = $pdo->prepare("insert into Student values(:fname, :lname, :email, :roomNumber)");
+			$stmt->execute([':fname' => $fname, 'lname' => $lname, 'email' => $email, 'roomNumber' => $roomNumber]);
+		
+			echo "<h2>Success</h2>";
+			echo "<p>$fname $lname was added to the database.</p>";
+		}
+	}
 }
 ?>
 <p><a href="attendees.php">Back</a></p>
 </table>
 </body>
-</html> 
+</html>
