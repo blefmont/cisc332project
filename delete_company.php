@@ -30,36 +30,20 @@
   </div>
   </div>
 </head>
-
+<body>
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=conference_database', "root", "");
-#if(isset($_POST['deleteCompany']) )
-#{
-#	$company = $_POST['deleteCompany'];
-#	$sql = "DELETE FROM `company` WHERE `company`.`name` = ?";
-#	$stmt = $pdo->prepare($sql);   #create the query
-#	$stmt->execute([$company]);   #bind the parameters
-#}
-if(isset($_POST['add_company']))
+if(isset($_POST['deleteCompany']) )
 {
-	if(isset($_POST['company_name']) and $_POST['company_name'] != "" and isset($_POST['sponsor_level']) and $_POST['sponsor_level'] != ""){
-		$company = $_POST['company_name'];
-		$sLevel = $_POST['sponsor_level'];
-		$sql = "insert into Company values(?, 0, ?)";
-		$pdo->prepare($sql)->execute([$company, $sLevel]);   
-	}
-	else{
-		echo("Too add company both inputs must be valid");
-	}
+	$company = $_POST['deleteCompany'];
+	$sql = "DELETE FROM `company` WHERE `company`.`name` = ?";
+	$stmt = $pdo->prepare($sql);   #create the query
+	$stmt->execute([$company]);   #bind the parameters
+    echo "<p>".$company." has been successfully deleted</p>";
 }
 ?>
 
-<h1>
-Add Company
-</h1>
-<body>
-<!--
-<p>Delete company
+<h1>Delete company</h1>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 	<select name="deleteCompany">
 <?php
@@ -71,31 +55,10 @@ while ($row = $stmt->fetch()) {
 }
 ?>
 	</select>
+    <br>
+    <br>
 	<input type="submit" name="formSubmit" value="Submit" >
 </form>
-</p>
--->
-
-<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-<p>Company name:</p>
-<input type="text" name="company_name">
-<br>
-<p>Sponsor level:</p>
-<select name="sponsor_level">
-<?php
-$sql = "select * from sponsor_status";
-$stmt = $pdo->prepare($sql);   #create the query
-$stmt->execute([]);   #bind the parameters
-while ($row = $stmt->fetch()) {
-	echo "<option value = '".$row["metal"]."'>".$row["metal"]."</option>";
-}
-?>
-</select>
-<br>
-<br>
-<input type="submit" name="add_company">
-</form> 
-</p>
 <p>
 <?php 
 #connect to the database
@@ -108,7 +71,6 @@ while ($row = $stmt->fetch()) {
 	echo "<tr><td>".$row["name"]."</td><td>".$row["sponsor_level"]."</td></tr>";
 }
 ?>
-</table>
 </p>
-<body>
+</body>
 </html>

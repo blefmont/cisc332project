@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link href="stylesheet.css" type="text/css" rel="stylesheet" >
         <div class="menu">
-  
+          <a href="/main_page.php">Home</a>
           <a href="/jobs.php">Jobs</a>
           <a href="/committee.php">Committees</a>
           <a href="/schedule_return.php">Sessions</a>
@@ -16,17 +17,24 @@
               <a href="/attendees.php#add_student">Add Student</a>
               <a href="/attendees.php#add_professional">Add Professional</a>
               <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-              <a href="/hotel_occupants.php">Add Room</a>
+              <a href="/hotel_occupants.php">View Room</a>
             </div>
-          </div>
-          </div> 
-        </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown_button">Companies
+    </button>
+    <div class="dropdown_content">
+      <a href="/companies.php">Add Company</a>
+      <a href="/delete_company.php">Delete Compnay</a>
+    </div>
+  </div>
+  </div>
 	</head>
 
 	<body>
-		<h1>Conference Attendees</h1>
+		<h1><a name="add_student">Conference Attendees</a></h1>
 	
-		<h2><a name="add_student">Add Student</a></h2>
+		<h2>Add Student</h2>
 		<form action="add_student.php" method="post">
 			<p>First Name</p>
 			<input type="text" name="fname"><br>
@@ -34,13 +42,13 @@
 			<input type="text" name="lname"><br>
 			<p>email</p>
 			<input type="text" name="email"><br>
-			<p>Room Number <i>(enter 0 if no room)</i></p>
+			<p><a name="add_professional">Room Number <i>(enter 0 if no room)</i></a></p>
 			<input type="number" name="roomNumber" min="0"><br>
 			<br>
 			<input type="submit"><br>
 		</form>
 	
-		<h2><a name="add_professional">Add Professional</a></h2>
+		<h2>Add Professional</h2>
 		<form action="add_professional.php" method="post">
 			<p>First Name</p>
 			<input type="text" name="fname"><br>
@@ -66,6 +74,5 @@
 			<input type="submit">
 		</form>
 		
-		<p><a href="/main_page.php">Back to Main Page</a></p>
 	</body>
 </html> 
