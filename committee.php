@@ -2,26 +2,26 @@
 <html>
 <head>
   <link href="stylesheet.css" type="text/css" rel="stylesheet" >
-  <div class="menu">
-  
-  <a href="/jobs.php">Jobs</a>
-  <a href="/committee.php">Committees</a>
-  <a href="/schedule_return.php">Sessions</a>
-  <a href="/finances.php">Finances</a>
-    
-  <div class="dropdown">
-    <button class="dropdown_button">Attendees
-    </button>
-    <div class="dropdown_content">
-      <a href="/show_attendees.php">View All</a>
-      <a href="/attendees.php#add_student">Add Student</a>
-      <a href="/attendees.php#add_professional">Add Professional</a>
-      <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-      <a href="/attendees.php">Add Room</a>
-    </div>
-  </div>
-  </div> 
-</div>
+        <div class="menu">
+          
+          <a href="/jobs.php">Jobs</a>
+          <a href="/committee.php">Committees</a>
+          <a href="/schedule_return.php">Sessions</a>
+          <a href="/finances.php">Finances</a>
+            
+          <div class="dropdown">
+            <button class="dropdown_button">Attendees
+            </button>
+            <div class="dropdown_content">
+              <a href="/show_attendees.php">View All</a>
+              <a href="/attendees.php#add_student">Add Student</a>
+              <a href="/attendees.php#add_professional">Add Professional</a>
+              <a href="/attendees.php#add_sponsor">Add Sponsor</a>
+              <a href="/hotel_occupants.php">Add Room</a>
+            </div>
+          </div>
+          </div> 
+        </div>
 </head>
 <body>
   <h1>Committee Page</h1>
@@ -88,7 +88,6 @@ if (isset($_POST["committeeName"]) and $_POST["committeeName"] != ""){
 ?>
 </table>
 <br><br>
-<a href = "main_page.php">Back to Main Page</a>
 </body>
 
 </html>

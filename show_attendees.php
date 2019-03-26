@@ -65,7 +65,5 @@
 	echo "</table>";
 ?>
 
-<p><a href="attendees.php">Back</a></p>
-
 </body>
 </html> 

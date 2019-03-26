@@ -17,7 +17,7 @@
               <a href="/attendees.php#add_student">Add Student</a>
               <a href="/attendees.php#add_professional">Add Professional</a>
               <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-              <a href="/attendees.php">Add Room</a>
+              <a href="/hotel_occupants.php">Add Room</a>
             </div>
           </div>
           </div> 

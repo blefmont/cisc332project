@@ -2,7 +2,27 @@
 <html>
 <head>
 <link href="stylesheet.css" type="text/css" rel="stylesheet" >
+<div class="menu">
+  
+  <a href="/jobs.php">Jobs</a>
+  <a href="/committee.php">Committees</a>
+  <a href="/schedule_return.php">Sessions</a>
+  <a href="/finances.php">Finances</a>
+    
+  <div class="dropdown">
+    <button class="dropdown_button">Attendees
+    </button>
+    <div class="dropdown_content">
+      <a href="/show_attendees.php">View All</a>
+      <a href="/attendees.php#add_student">Add Student</a>
+      <a href="/attendees.php#add_professional">Add Professional</a>
+      <a href="/attendees.php#add_sponsor">Add Sponsor</a>
+      <a href="/hotel_occupants.php">Add Room</a>
+    </div>
+    </div>
+    </div>
 </head>
+
 <body>
 <h2>Update Schedule</h2>
 
@@ -60,63 +80,6 @@
 
 </body>
 </html>
-
-
-
-<!--
-<html>
-<head>
-<link href="stylesheet.css" type="text/css" rel="stylesheet" >
-</head>
-<body>
-<h2>Modify Schedule</h2>
-
-
-<form action="schedule_return.php" method="post">
-<?php
-  echo "Name:<br>";
-  echo "<input type=\"text\" name=\"name\"><br>";
-  echo "Room #:<br>";
-  echo "<input type=\"text\" name=\"room\"><br>";
-  echo "Session  Day<br>";
-  echo "<input type=\"date\" name=\"session_day\"><br>";
-  echo "Start Time<br>";
-  #make sure the seconds field is marked using css
-  echo "<input type=\"time\" name=\"starttime\" min=\"8:30\" max=\"23:00\" step=\"1800\"><br>";
-  echo "End Time<br>";
-  echo "<input type=\"time\" name=\"endtime\" min=\"8:30\" max=\"23:00\" step=\"1800\"><br>";
-  echo "Speaker<br>";
-  #connect to database
-  $pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
-  $sql = "SELECT DISTINCT * from attendees";
-
-  $stmt = $pdo->prepare($sql); #create the query
-  $stmt->execute(); #execute query
-  echo "<select name=\"speaker\">";
-  echo "<option value=\"\"></option>";
-  #stmt contains the result, place it in a table
-  while ($row = $stmt->fetch()){
-       echo "<option value=\"".$row["email"]."\">".$row["fname"]." ".$row["lname"]."</option>";
-   }
-   echo "</select>";
-   
-        $blah = "insert into Session values (TIME('10:30'), TIME('11:30'), DATE('1997-06-07'), '101', 'hello')";
-
-        $sws = $pdo->prepare($blah); #create the query
-            
-        #$stmt->execute([$starttime,$endtime,$day,$room,$name]); #execute query
-        if ($sws->execute()){
-            print "true";
-        }else {
-            print "false";
-        }
-?>
-  <br><br> <input type="submit">
-  </form>
-
-</body>
-</html>
--->
 
 
 
