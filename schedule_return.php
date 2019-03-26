@@ -9,6 +9,7 @@
   <a href="/schedule_return.php">Sessions</a>
   <a href="/finances.php">Finances</a>
     
+  <div class="dropdown">
     <button class="dropdown_button">Attendees
     </button>
     <div class="dropdown_content">
