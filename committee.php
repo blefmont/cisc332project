@@ -2,32 +2,39 @@
 <html>
 <head>
   <link href="stylesheet.css" type="text/css" rel="stylesheet" >
-        <div class="menu">
-          
-          <a href="/jobs.php">Jobs</a>
-          <a href="/committee.php">Committees</a>
-          <a href="/schedule_return.php">Sessions</a>
-          <a href="/finances.php">Finances</a>
-            
-          <div class="dropdown">
-            <button class="dropdown_button">Attendees
-            </button>
-            <div class="dropdown_content">
-              <a href="/show_attendees.php">View All</a>
-              <a href="/attendees.php#add_student">Add Student</a>
-              <a href="/attendees.php#add_professional">Add Professional</a>
-              <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-              <a href="/hotel_occupants.php">Add Room</a>
-            </div>
-          </div>
-          </div> 
-        </div>
+<div class="menu">
+  <a href="/main_page.php">Home</a>
+  <a href="/jobs.php">Jobs</a>
+  <a href="/committee.php">Committees</a>
+  <a href="/schedule_return.php">Sessions</a>
+  <a href="/finances.php">Finances</a>
+    
+  <div class="dropdown">
+    <button class="dropdown_button">Attendees
+    </button>
+    <div class="dropdown_content">
+      <a href="/show_attendees.php">View All</a>
+      <a href="/attendees.php#add_student">Add Student</a>
+      <a href="/attendees.php#add_professional">Add Professional</a>
+      <a href="/attendees.php#add_sponsor">Add Sponsor</a>
+      <a href="/hotel_occupants.php">View Room</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown_button">Companies
+    </button>
+    <div class="dropdown_content">
+      <a href="/companies.php">Add Company</a>
+      <a href="/delete_company.php">Delete Compnay</a>
+    </div>
+  </div>
+  </div>
 </head>
 <body>
   <h1>Committee Page</h1>
   
 
-  <p> Please Pick a Committee: </p>
+  <p> Please Pick a Committee to view the members of: </p>
   <form action="committee.php" method="post">
   <?php
    #connect to database
@@ -50,6 +57,8 @@
    }
    echo "</select>";
   ?>
+  <br>
+  <br>
   <input type="submit">
   </form>
 <br><br>
@@ -58,8 +67,8 @@
 <?php
 if (isset($_POST["committeeName"]) and $_POST["committeeName"] != ""){
     $comm = $_POST["committeeName"];
-    echo "<p>Here is a list of the $comm members </p>";
-    echo "<p>The bolded entry is the committee leader </p>";
+    echo "<p>Here is a list of the $comm members. </p>";
+    echo "<p>The <b>bolded entry</b> is the committee leader. </p>";
     echo "<table><tr><th align=\"center\" colspan=\"2\">Name</th></tr>";
 
     #connect to the database

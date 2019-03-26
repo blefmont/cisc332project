@@ -2,8 +2,8 @@
 <html>
 <head>
   <link href="stylesheet.css" type="text/css" rel="stylesheet" >
-  <div class="menu">
-  
+<div class="menu">
+  <a href="/main_page.php">Home</a>
   <a href="/jobs.php">Jobs</a>
   <a href="/committee.php">Committees</a>
   <a href="/schedule_return.php">Sessions</a>
@@ -17,11 +17,18 @@
       <a href="/attendees.php#add_student">Add Student</a>
       <a href="/attendees.php#add_professional">Add Professional</a>
       <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-      <a href="/hotel_occupants.php">Add Room</a>
+      <a href="/hotel_occupants.php">View Room</a>
     </div>
   </div>
-  </div> 
-</div>
+  <div class="dropdown">
+    <button class="dropdown_button">Companies
+    </button>
+    <div class="dropdown_content">
+      <a href="/companies.php">Add Company</a>
+      <a href="/delete_company.php">Delete Compnay</a>
+    </div>
+  </div>
+  </div>
 </head>
 <body>
   <h1>View jobs</h1>
@@ -39,10 +46,20 @@ $stmt->execute([]);   #bind the parameters
 			<option value = 'all'>All</option>
 <?php
 while ($row = $stmt->fetch()) {
-	echo "<option value = '".$row["name"]."'>".$row["name"]."</option>";
+	#echo "<option value = '".$row["name"]."'>".$row["name"]."</option>";
+    if ($_POST["filterCompany"] == $row["name"]){
+         echo "true";
+         echo "<option value='".$row["name"]."' selected =\"selected\">".$row["name"]."</option>";
+       }
+    else {
+         echo "<option value='".$row["name"]."'>".$row["name"]."</option>";
+       }
+         
 }
 ?>
 		</select>
+        <br>
+        <br>
 		<input type="submit" name="formSubmit" value="Submit" >
 	</form>
 </p>
@@ -74,6 +91,5 @@ while ($row = $stmt->fetch()) {
 
 ?>
 </table>
-<p><a href="main_page.php">Back to Main Page</a></p>
 </body>
 </html>

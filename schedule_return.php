@@ -2,26 +2,33 @@
 <html>
 <head>
 <link href="schedule.css" type="text/css" rel="stylesheet" >
-    <div class="menu">
-      
-      <a href="/jobs.php">Jobs</a>
-      <a href="/committee.php">Committees</a>
-      <a href="/schedule_return.php">Sessions</a>
-      <a href="/finances.php">Finances</a>
-        
-      <div class="dropdown">
-        <button class="dropdown_button">Attendees
-        </button>
-        <div class="dropdown_content">
-          <a href="/show_attendees.php">View All</a>
-          <a href="/attendees.php#add_student">Add Student</a>
-          <a href="/attendees.php#add_professional">Add Professional</a>
-          <a href="/attendees.php#add_sponsor">Add Sponsor</a>
-          <a href="/hotel_occupants.php">Add Room</a>
-        </div>
-      </div>
-      </div> 
+<div class="menu">
+  <a href="/main_page.php">Home</a>
+  <a href="/jobs.php">Jobs</a>
+  <a href="/committee.php">Committees</a>
+  <a href="/schedule_return.php">Sessions</a>
+  <a href="/finances.php">Finances</a>
+    
+  <div class="dropdown">
+    <button class="dropdown_button">Attendees
+    </button>
+    <div class="dropdown_content">
+      <a href="/show_attendees.php">View All</a>
+      <a href="/attendees.php#add_student">Add Student</a>
+      <a href="/attendees.php#add_professional">Add Professional</a>
+      <a href="/attendees.php#add_sponsor">Add Sponsor</a>
+      <a href="/hotel_occupants.php">View Room</a>
     </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown_button">Companies
+    </button>
+    <div class="dropdown_content">
+      <a href="/companies.php">Add Company</a>
+      <a href="/delete_company.php">Delete Compnay</a>
+    </div>
+  </div>
+  </div>
 </head>
 <body>
 
@@ -30,46 +37,7 @@
 
 
 <?php
-    #Add entry to the schedule
-    if (isset($_POST['name'])){   
-        $name = $_POST["name"];
-        #if name has been added that means add a new entry 
-        $room = $_POST["room"];
-        $day = $_POST["session_day"];
-        $starttime = $_POST["starttime"];
-        $endtime = $_POST["endtime"];
-        $email = $_POST["speaker"];
-        print $name;
-        print $room;
-        print $starttime;
-        print $endtime;
-        print $email;
-        print $day;
-        #connect to database
-        $pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
-        $sql = "insert into Session values (TIME(?), TIME(?), DATE(?), ?, ?)";
-        $stmt = $pdo->prepare($sql); #create the query  
-        $stmt->execute([$starttime,$endtime,$day, $room, $name]); #execute query
-        #$stmt->execute();
-        $rows =  $stmt->fetch();
-        print "HELLO";
-        print $rows;
-        #from the email get the first name and last name 
-        $sql = "select fname, lname from attendees where email=?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$email]);
-        $row = $stmt->fetch();
-        $fname = $row["fname"];
-        $lname = $row["lname"];
-        print $fname;
-        print $lname;
-        $sql = "insert into Is_speaking values (TIME(?),DATE(?),?,?,?,?,?)";
-        $stmt = $pdo->prepare($sql); #create query
-        $stmt->execute([$starttime, $day, $room, $name, $fname, $lname, $email]);
-        echo "<p>Success, the entry has successfully been added!</p>";
-    }
-    #update a schedule 
-    else if (isset($_GET["id"])){
+ if (isset($_GET["id"])){
         #update the session with the target id 
         $id = $_GET["id"];
         $room = $_POST['room'];
@@ -81,18 +49,11 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$room,$starttime,$endtime,$day,$id]);
         echo "<p>Success, the entry has successfully been updated!</p>";
-    }
-    
-    
+        $_POST["date"] = $day;
+    } 
 ?>
 
-  <!-- start of table of schedule -->
-
-
-
-
-
-<p> select a date </p>
+<h3> Please select a date <h3>
 <!-- the form for resubmission --> 
 <form action="schedule_return.php" method="post">
 <?php
@@ -104,7 +65,12 @@
    echo "<select name=\"date\">";
    #stmt contains the result, place it in a table
    while ($row = $stmt->fetch()){
-       echo "<option value=\"".$row["session_day"]."\">".$row["session_day"]."</option>";
+       if ($_POST["date"] == $row["session_day"]){
+         echo "<option value=\"".$row["session_day"]."\" selected=\"selected\">".$row["session_day"]."</option>";
+       }
+       else {
+           echo "<option value=\"".$row["session_day"]."\">".$row["session_day"]."</option>";  
+       }
    }
    echo "</select>";
    
@@ -149,7 +115,7 @@ if (isset($_POST['date'])){
             #make the event links clickable so that they can lead to a page where events can be modified
             echo "<td rowspan=\"".$len_time."\">";
             echo "<table>";
-            echo "<tr><td colspan=\"5\"> <a href=\"schedule_update.php?id=".$row['id']."\">".$row["name"]."</a></td></tr>";
+            echo "<tr><td colspan=\"5\"> <a href=\"http://localhost/schedule_update.php?id=".$row['id']."\">".$row["name"]."</a></td></tr>";
             #get the speaker's information 
             echo "<tr>";
             $sql2 = "select * from is_speaking where id=?";
@@ -169,15 +135,7 @@ if (isset($_POST['date'])){
 
     }
 }
-
-
 ?>
 </table>
 </body>
 </html> 
-
-
-
-
-
- 
