@@ -59,7 +59,7 @@ if(isset($_POST['filterCompany']) )
 	}
 	else {$sql = "select * from ad where company = ?";}	
 }
-else { $sql = "select * from ad where company = ?";}
+else { $sql = "select * from ad";}
 
 
 $stmt = $pdo->prepare($sql);   #create the query
