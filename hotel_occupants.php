@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="stylesheet.css" type="text/css" rel="stylesheet" >
+        <link href="stylesheet.css" type="text/css" rel="stylesheet" >
+        <div class="menu">
+          
+          <a href="/jobs.php">Jobs</a>
+          <a href="/committee.php">Committees</a>
+          <a href="/schedule_return.php">Sessions</a>
+          <a href="/finances.php">Finances</a>
+            
+          <div class="dropdown">
+            <button class="dropdown_button">Attendees
+            </button>
+            <div class="dropdown_content">
+              <a href="/show_attendees.php">View All</a>
+              <a href="/attendees.php#add_student">Add Student</a>
+              <a href="/attendees.php#add_professional">Add Professional</a>
+              <a href="/attendees.php#add_sponsor">Add Sponsor</a>
+              <a href="/attendees.php">Add Room</a>
+            </div>
+          </div>
+          </div> 
+        </div>
 </head>
 <body>
-
+<h2>View Hotel Room Occupants</h2>
+		<form action="hotel_occupants.php" method="post">
+			<p>Room Number</p>
+			<?php
+				$pdo = new PDO('mysql:host=localhost;dbname=conference_database',"root","");
+				$sql = "select roomnumber from rooms";
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
+			        echo "<select name=\"roomNumber\">";
+                                #stmt contains the result, place it in a table
+                                while ($row = $stmt->fetch()){
+                                echo "<option value=\"".$row["roomnumber"]."\">".$row["roomnumber"]."</option>";
+   				}
+                                echo "</select>";
+				
+			?>
+			<input type="submit">
+		</form>
 <?php
-	$pdo = new PDO('mysql:host=localhost;dbname=conference_database', "root", "");
+	if (isset($_POST["roomNumber"])){
+    $pdo = new PDO('mysql:host=localhost;dbname=conference_database', "root", "");
 	$roomNumber = $_POST["roomNumber"];
 	
 	echo "<h2>Room $roomNumber</h2>";
@@ -32,6 +70,7 @@
 		}
 		echo "</table>";
 	}
+    }
 ?>
 
 <p><a href="attendees.php">Back</a></p>
