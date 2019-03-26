@@ -1,8 +1,9 @@
 body {
   margin: 15vh 15vw 15vh 15vw;
   font-family: arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   }
+
 
 h1 {
   font-size: 36px;
@@ -16,32 +17,18 @@ p {
 
 }
 
-
-
 td, table{
 	text-align: left;
 	padding: 8px 30px 8px 8px;
-	border-collapse: collapse;
-	border: 1px solid #ccc
 	
 }
 th{
 text-align: center; 
     vertical-align: middle;
     padding: 8px 30px 8px 8px;
-    border-collapse: collapse;
-    border: 1px solid #ccc
 }
-
-tr:nth-child(even) {
-	background-color: #eee
-}
-
-
-
 
 .menu {
-  font-family: inherit;
   background-color: #cccccc;
   overflow: hidden;
   display: block;
@@ -50,7 +37,6 @@ tr:nth-child(even) {
 
   
 }
-
 
 .menu a  {
   float: left;
