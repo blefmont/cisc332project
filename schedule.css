@@ -1,8 +1,9 @@
 body {
   margin: 15vh 15vw 15vh 15vw;
   font-family: arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   }
+
 
 h1 {
   font-size: 36px;
@@ -31,10 +32,11 @@ text-align: center;
   background-color: #cccccc;
   overflow: hidden;
   display: block;
+  top: 0;
+  position: fixed;
 
   
 }
-
 
 .menu a  {
   float: left;
@@ -69,7 +71,7 @@ text-align: center;
 
 .dropdown_content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #f9f9f9;
   min-width: 160px;
 }

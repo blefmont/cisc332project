@@ -26,7 +26,7 @@
 <body>
 
 
-<h2>Full Schedule</h2>
+<h1>Full Schedule</h1>
 
 
 <?php
@@ -87,7 +87,6 @@
 ?>
 
   <!-- start of table of schedule -->
-  <table border=1>
 
 
 
@@ -118,7 +117,8 @@
 #only put chart if the date is set
 if (isset($_POST['date'])){
     $date = $_POST["date"];
-    echo "<h2> Schedule for $date:";
+    echo "<h2> Schedule for $date:</h2>";
+    echo "<table border=\"1\">";
     echo "<tr><th>Time</th><th colspan=\"2\">Session</th></tr>";
 
     #connect to the database
@@ -169,48 +169,7 @@ if (isset($_POST['date'])){
 
     }
 }
-#get all the sessions on a particular day at the cur_time
-#$sql = "select * from session where session_day= ? order by starttime"
-#$stmt = $pdo->prepare($sql);
-#$stmt->execute([$date]);
 
-
-
-#Just try to get all events printed out
-#while ($row = $stmt -> fetch()){
-#    echo "<table><th>".$row["name"]
-     
-
-#create an array that will hold all of the data
-
-
-
-
-#$cur_hr=08; #stores the current hour
-#$cur_min=":30"; #stores the current min
-#while ($row = $stmt->fetch()){
-#    while ($row["starttime"] == cur_hr  
-#    echo "<p> $cur_hr$cur_min </p>";
-#    echo "<table><th>";
-    
-#    $cur_hr = $cur_hr + 1;
-#}    
-
-
-
-#use fetch to get the committee leader 
-#$row = $stmt->fetch();
-#echo "<tr><td><b>".$row["chair_f"]."</b></td><td><b>".$row["chair_l"]."</b></td></tr>";
-
-#$sql = "select DISTINCT fname, lname from is_on WHERE committee_name = ? and (fname, lname) not in (SELECT chair_f as fname, chair_l as lname FROM committee where name=?)";
-#$stmt = $pdo->prepare($sql);   #create the query
-#$stmt->execute([$comm, $comm]);   #bind the parameters
-
-#stmt contains the result of the program execution
-#use fetch to get results row by row.
-#while ($row = $stmt->fetch()) {
-#	echo "<tr><td>".$row["fname"]."</td><td>".$row["lname"]."</td></tr>";
-#}
 
 ?>
 </table>

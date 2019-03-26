@@ -45,6 +45,8 @@ tr:nth-child(even) {
   background-color: #cccccc;
   overflow: hidden;
   display: block;
+  top: 0;
+  position: fixed;
 
   
 }
@@ -83,7 +85,7 @@ tr:nth-child(even) {
 
 .dropdown_content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #f9f9f9;
   min-width: 160px;
 }
