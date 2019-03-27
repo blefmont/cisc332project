@@ -75,6 +75,8 @@
    echo "</select>";
    
 ?> 
+  <br>
+  <br>
   <input type="submit">
   </form>
 
